@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block contactactive %}active{% endblock contactactive %}
+{% block css %}
+<style>
+    .container{
+        min-height: 90vh;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container my-4">
+    <h2 class="py-3">Contact us</h2>
+    <form class="row g-3" action="/contact/" method="POST">
+    {% csrf_token %}
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Name</label>
+            <input type="text" class="form-control"  name='name'>
+          </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control"  name='email'>
+        </div>
+        <div class="col-md-6">
+          <label for="query" class="form-label">Ask Us?</label>
+          <textarea class="form-control"  name='ask'></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+</div>
+{% endblock body %}
